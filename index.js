@@ -10,7 +10,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const cors = require("cors");
-app.use(cors());
+app.use(
+	cors({
+		origin: "https://todo-web-phi.vercel.app",
+		methods: "GET,POST,PUT,DELETE",
+	})
+);
 
 app.get("/tasks", async (req, res) => {
 	const data = await db
