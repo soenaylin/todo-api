@@ -32,6 +32,7 @@ const cors = require("cors");
 app.use(
 	cors({
 		origin: "https://todo-web-phi.vercel.app",
+		methods: "GET,POST,PUT,DELETE",
 		// if using cookies / credentials: add credentials: true
 	})
 );
