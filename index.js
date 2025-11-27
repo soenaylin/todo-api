@@ -1,20 +1,18 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-
 const express = require("express");
-const app = express();
-
-const { MongoClient, ObjectId } = require("mongodb");
-const client = new MongoClient(process.env.MONGO_URI);
-const db = client.db("todo");
-
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 dotenv.config();
+const app = express();
 
 mongoose
 	.connect(process.env.MONGO_URI)
 	.then(() => console.log("MongoDB connected"))
 	.catch((err) => console.error(err));
-    
+
+const { MongoClient, ObjectId } = require("mongodb");
+const client = new MongoClient(process.env.MONGO_URI);
+const db = client.db("todo");
+
 // const { MongoClient, ObjectId } = require("mongodb");
 // const client = new MongoClient(process.env.MONGO_URI);
 // const db = client.db("todo");
