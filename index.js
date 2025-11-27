@@ -1,19 +1,30 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config();
-
-mongoose
-	.connect(process.env.MONGO_URI)
-	.then(() => console.log("MongoDB connected"))
-	.catch((err) => console.error(err));
-
 const express = require("express");
 const app = express();
 
 const { MongoClient, ObjectId } = require("mongodb");
 const client = new MongoClient(process.env.MONGO_URI);
 const db = client.db("todo");
+
+dotenv.config();
+
+mongoose
+	.connect(process.env.MONGO_URI)
+	.then(() => console.log("MongoDB connected"))
+	.catch((err) => console.error(err));
+    
+// const { MongoClient, ObjectId } = require("mongodb");
+// const client = new MongoClient(process.env.MONGO_URI);
+// const db = client.db("todo");
+
+// dotenv.config();
+
+// mongoose
+// 	.connect(process.env.MONGO_URI)
+// 	.then(() => console.log("MongoDB connected"))
+// 	.catch((err) => console.error(err));
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
