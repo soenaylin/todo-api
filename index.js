@@ -12,7 +12,7 @@ const express = require("express");
 const app = express();
 
 const { MongoClient, ObjectId } = require("mongodb");
-const client = new MongoClient("mongodb://localhost");
+const client = new MongoClient(process.env.MONGO_URI);
 const db = client.db("todo");
 
 const bodyParser = require("body-parser");
